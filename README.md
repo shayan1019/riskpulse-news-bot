@@ -1,114 +1,42 @@
-# RiskPulse — Real-Time Financial News & Geopolitical Risk Telegram Bot
+# RiskPulse - Financial News Risk Bot
 
-> **Public Portfolio Showcase & Architecture Overview**
-> 
-> *RiskPulse is a trader-focused risk monitoring bot designed to ingest real-time macro, geopolitical, commodity, and cross-asset news, classify event severity, calculate symbol impact biases, and broadcast localized Telegram alerts before market shock damage compounds.*
+> A public-safe Python/FastAPI showcase for turning multi-source financial news into localized subscriber alerts.
 
----
+RiskPulse is an async service architecture I engineered around news normalization, risk classification, subscriber preferences, localized Telegram delivery, and replay-oriented QA. This public release contains a safe, deterministic demo contract and documents the original system boundary; production credentials, databases, provider configuration, and operational data are excluded.
 
-## Architecture Overview
+## What it demonstrates
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────┐
-│                               Multi-Source News Ingestion                               │
-│  NewsAPI.org  ·  GDELT DOC API  ·  Marketaux Market News  ·  Alpha Vantage Sentiment    │
-└───────────────────────────┬─────────────────────────────────────────────────────────────┘
-                            │ Raw Headlines / Events
-                            ▼
-┌─────────────────────────────────────────────────────────────────────────────────────────┐
-│                                 RiskPulse Core Engine                                   │
-│                                                                                         │
-│  1. Normalization      ➜ Standardized to NormalizedEvent schema                         │
-│  2. Classification     ➜ Risk Category (Geopolitical, Macro, Gold, Oil, Crypto, CB)      │
-│  3. Impact Mapping     ➜ Affected Symbols & Directional Bias Calculation                │
-│  4. Priority Scoring   ➜ Score Assignment (LOW, MEDIUM, HIGH, CRITICAL)                 │
-│  5. Deduplication      ➜ Fingerprint matching, story clustering, burst cooldowns        │
-│  6. Multi-User Engine  ➜ User preference filtering (Category, Severity, Mode)         │
-│  7. Localization       ➜ 4 Languages (English, Turkish, Farsi, Arabic)                  │
-└───────────────────────────┬─────────────────────────────────────────────────────────────┘
-                            │ Filtered & Formatted Messages
-                            ▼
-┌─────────────────────────────────────────────────────────────────────────────────────────┐
-│                                Telegram Delivery Layer                                  │
-│  Multi-User Telegram Subscriber Broadcast · Button-First UI · Interactive Menus         │
-└─────────────────────────────────────────────────────────────────────────────────────────┘
+- FastAPI and Pydantic-based REST contracts.
+- Async news-adapter boundary, SQLite persistence pattern, and Telegram subscriber delivery.
+- Multi-language delivery and deterministic replay-test design.
+- A security-first configuration model using environment variables.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    Sources[Public news sources] --> Adapters[Async adapters]
+    Adapters --> Normalize[Normalization and classification]
+    Normalize --> Store[SQLite persistence]
+    Normalize --> Preferences[Subscriber preferences]
+    Preferences --> Telegram[Localized Telegram delivery]
+    Replay[Sanitized replay fixture] --> Normalize
 ```
 
----
+See [architecture](docs/architecture.md), [system flow](docs/system-flow.md), and the synthetic [example event](examples/news-event.json).
 
-## Technical Features
+## Safe demo
 
-- **Multi-Source News Aggregation**: Consolidates news feeds from NewsAPI.org, GDELT, Marketaux, Alpha Vantage, and RSS sources with automatic source gap detection and exponential retry backoff.
-- **Rule-Based Risk Classifier**: Categorizes events into Geopolitical Escalation/De-escalation, Central Bank Policy, Inflation/Labor Macro Shocks, Commodity Supply Disruptions, and Crypto Stress.
-- **Smart Deduplication & Burst Control**: Fingerprint hashing, semantic story clustering, and configurable cooldown windows prevent notification noise during breaking news spikes.
-- **Multi-User Telegram Bot Engine**:
-  - Full subscriber registration & preference management via Telegram commands (`/start`, `/subscribe`, `/language`, `/news`, `/level`, `/mode`).
-  - Interactive Button-First UX with inline keyboard selectors and state markers.
-  - Multi-language localization in English (`en`), Turkish (`tr`), Farsi (`fa`), and Arabic (`ar`).
-- **RESTful API Service**: Exposes FastAPI endpoints (`/health`, `/metrics-summary`, `/webhook/external-alert`) for health monitoring and third-party alert ingestion.
-- **Deterministic Replay Test Suite**: Includes scenario replay datasets testing critical market events (FOMC surprise, NFP shock, Strait of Hormuz escalation/de-escalation, OPEC production cuts).
+The included fixture is non-operational: it has no provider tokens, no real endpoints, no subscriber data, and no external network calls. Copy `.env.example` only when building a private local integration; use your own credentials.
 
----
+## Excluded deliberately
 
-## Project Structure
+Production Telegram tokens, API keys, provider settings, live endpoints, databases, logs, subscriber records, and operational risk thresholds.
 
-```
-forexnewsbot/
-├── config/
-│   └── riskpulse.yaml            # Watchlist, category thresholds, cooldown settings
-├── src/riskpulse/
-│   ├── adapters/                 # NewsAPI, GDELT, Marketaux, Alpha Vantage adapters
-│   ├── app/                      # CLI, polling worker, FastAPI service entrypoints
-│   ├── delivery/                 # Telegram Bot API client & localized message templates
-│   ├── models/                   # Pydantic schemas (NormalizedEvent, SubscriberConfig)
-│   ├── persistence/              # SQLite database storage & subscriber store
-│   └── services/                 # Classifier, mapper, scorer, dedup engine
-├── scripts/
-│   └── replay_scenarios.py       # Deterministic scenario replay validation runner
-├── run_riskpulse.py              # Primary single-action startup script
-├── pyproject.toml                # Standard Python package manifest
-└── tests/                        # Comprehensive unit and scenario tests
-```
+## Screenshots
 
----
+No screenshots are included because live alerts can contain subscriber and operational information. The examples directory is the public demonstration material.
 
-## Quick Start (Demo Mode)
+## License
 
-### Prerequisites
-- Python 3.11+
-
-### Installation
-
-```powershell
-# Clone repo
-git clone https://github.com/shayan1019/riskpulse-news-bot.git
-cd riskpulse-news-bot
-
-# Set up environment
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -e .
-pip install -r requirements.txt
-```
-
-### Environment Configuration
-Copy `.env.example` to `.env` and set your credentials:
-
-```ini
-TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-ENABLE_NEWSAPI=true
-NEWSAPI_API_KEY=your_newsapi_key_here
-ENABLE_GDELT=true
-```
-
-### Run Replay Scenario Test Suite
-
-```powershell
-python scripts/replay_scenarios.py
-```
-
-### Run Application Tests
-
-```powershell
-pytest
-```
+MIT for this showcase documentation and synthetic fixtures. The production deployment configuration and data are not included.
