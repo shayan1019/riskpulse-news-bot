@@ -33,6 +33,10 @@ The included fixture is non-operational: it has no provider tokens, no real endp
 
 Production Telegram tokens, API keys, provider settings, live endpoints, databases, logs, subscriber records, and operational risk thresholds.
 
+## Visual overview
+
+![RiskPulse workflow](assets/riskpulse-workflow.png)
+
 ## Screenshots
 
 No screenshots are included because live alerts can contain subscriber and operational information. The examples directory is the public demonstration material.
