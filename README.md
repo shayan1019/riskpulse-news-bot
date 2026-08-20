@@ -35,6 +35,8 @@ Production Telegram tokens, API keys, provider settings, live endpoints, databas
 
 ## Visual overview
 
+![RiskPulse](assets/riskpulse-hero.png)
+
 ![RiskPulse workflow](assets/riskpulse-workflow.png)
 
 ## Screenshots

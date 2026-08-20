@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="907.2pt" height="513.36pt" viewBox="0 0 907.2 513.36" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ 
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 513.36 
+L 907.2 513.36 
+L 907.2 -0 
+L 0 -0 
+z
+" style="fill: #0f172a"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 49.608 262.7784 
+L 199.152 262.7784 
+Q 205.848 262.7784 205.848 256.1256 
+L 205.848 118.6344 
+Q 205.848 111.9816 199.152 111.9816 
+L 49.608 111.9816 
+Q 42.912 111.9816 42.912 118.6344 
+L 42.912 256.1256 
+Q 42.912 262.7784 49.608 262.7784 
+z
+" clip-path="url(#pf12ddee40f)" style="fill: #1e293b; stroke: #14b8a6; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 269.088 262.7784 
+L 418.632 262.7784 
+Q 425.328 262.7784 425.328 256.1256 
+L 425.328 118.6344 
+Q 425.328 111.9816 418.632 111.9816 
+L 269.088 111.9816 
+Q 262.392 111.9816 262.392 118.6344 
+L 262.392 256.1256 
+Q 262.392 262.7784 269.088 262.7784 
+z
+" clip-path="url(#pf12ddee40f)" style="fill: #1e293b; stroke: #14b8a6; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 488.568 262.7784 
+L 638.112 262.7784 
+Q 644.808 262.7784 644.808 256.1256 
+L 644.808 118.6344 
+Q 644.808 111.9816 638.112 111.9816 
+L 488.568 111.9816 
+Q 481.872 111.9816 481.872 118.6344 
+L 481.872 256.1256 
+Q 481.872 262.7784 488.568 262.7784 
+z
+" clip-path="url(#pf12ddee40f)" style="fill: #1e293b; stroke: #14b8a6; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 708.048 262.7784 
+L 857.592 262.7784 
+Q 864.288 262.7784 864.288 256.1256 
+L 864.288 118.6344 
+Q 864.288 111.9816 857.592 111.9816 
+L 708.048 111.9816 
+Q 701.352 111.9816 701.352 118.6344 
+L 701.352 256.1256 
+Q 701.352 262.7784 708.048 262.7784 
+z
+" clip-path="url(#pf12ddee40f)" style="fill: #1e293b; stroke: #14b8a6; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 26px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #e2e8f0" x="453.6" y="72.586375" transform="rotate(-0 453.6 72.586375)">RiskPulse</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #7dd3fc" x="453.6" y="107.945156" transform="rotate(-0 453.6 107.945156)">Multilingual Financial-News &amp; Risk Bot</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 11.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #e2e8f0" x="124.38" y="190.508359" transform="rotate(-0 124.38 190.508359)">FastAPI async service</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 11.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #e2e8f0" x="343.86" y="190.553281" transform="rotate(-0 343.86 190.553281)">News normalization &amp; classification</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 11.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #e2e8f0" x="563.34" y="190.553281" transform="rotate(-0 563.34 190.553281)">SQLite persistence</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 11.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #e2e8f0" x="782.82" y="190.508359" transform="rotate(-0 782.82 190.508359)">Telegram delivery</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #fbbf24" x="453.6" y="318.156375" transform="rotate(-0 453.6 318.156375)">Deterministic replay QA  ·  EN / TR / FA / AR</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #94a3b8" x="453.6" y="373.091375" transform="rotate(-0 453.6 373.091375)">Python  ·  FastAPI  ·  SQLite  ·  Telegram Bot API</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pf12ddee40f">
+   <rect x="7.2" y="7.2" width="892.8" height="498.96"/>
+  </clipPath>
+ </defs>
+</svg>
